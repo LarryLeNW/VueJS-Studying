@@ -88,12 +88,6 @@ const handleLogoutDemo = () => {
                     <div class="p-1 text-lg hover:font-bold border-y-2">
                         YOUR SERVICES
                     </div>
-                    <router-link
-                        :to="routes.MEMBER.LIST_ORDER"
-                        class="p-1 text-lg hover:font-bold border-y-2"
-                    >
-                        LIST ORDER
-                    </router-link>
                     <div
                         class="p-1 text-lg hover:font-bold text-red-600"
                         @click="handleLogoutDemo"

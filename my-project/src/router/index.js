@@ -6,6 +6,7 @@ const router = createRouter({
     routes: [
         {
             path: "/",
+            name: "userLayout",
             component: () => import("../layouts/UserLayout/UserLayout.vue"),
             children: [
                 {
@@ -35,6 +36,21 @@ const router = createRouter({
                 {
                     path: routes.USER.ADVERTISES,
                     component: () => import("../pages/user/advertises.vue"),
+                },
+            ],
+        },
+        {
+            path: "/",
+            name: "memberLayout",
+            component: () => import("../layouts/MemberLayout/MemberLayout.vue"),
+            children: [
+                {
+                    path: routes.MEMBER.LIST_ORDER,
+                    component: () => import("../pages/member/list_order.vue"),
+                },
+                {
+                    path: routes.MEMBER.DETAIL_ORDER,
+                    component: () => import("../pages/member/detail_order.vue"),
                 },
             ],
         },

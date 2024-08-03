@@ -1,15 +1,20 @@
 const routes = {
     USER: {
-        HOME: "/",
+        LOGIN: "/",
+        HOME: "/home",
         PRODUCT: "/design",
         DESIGN: "/web-design",
         ADVERTISES: "/advertises",
         SERVICES: "/services",
         CONTACT: "/contact",
         ABOUT: "/about",
+        REGISTER: "/register",
     },
     ADMIN: {},
-    MEMBER: {},
+    MEMBER: {
+        LIST_ORDER: "list-order",
+        DETAIL_ORDER: "list-order",
+    },
 };
 
 export default routes;
