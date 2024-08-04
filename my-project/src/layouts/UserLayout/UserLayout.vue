@@ -6,7 +6,9 @@ import Header from "./Header.vue";
 <template>
     <div class="flex flex-col h-full">
         <Header></Header>
-        <router-view />
+        <div class="mt-2">
+            <router-view />
+        </div>
         <Footer></Footer>
     </div>
 </template>

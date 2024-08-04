@@ -1,37 +1,41 @@
 <template>
     <div>
-        <div class="text-3xl m-auto">PRODUCT</div>
-        <div class="flex flex-wrap gap-2 justify-center items-center">
+        <div v-if="product.isLoading" class="text-center mt-4">
+            <p>Loading...</p>
+        </div>
+
+        <div v-if="product.error" class="text-center mt-4 text-red-500">
+            <p>Error: {{ error.message }}</p>
+        </div>
+
+        <div v-else class="flex flex-wrap gap-2 justify-center items-center">
             <div
-                v-for="product in listProduct"
-                :key="product.id"
-                class="border w-1/5 rounded"
+                v-for="product in product.data"
+                :key="product.name"
+                class="border w-1/5 rounded p-2 flex flex-col gap-1"
             >
-                <div>
-                    {{ product.name }}
-                </div>
+                <span>Name: {{ product.name }}</span>
+                <span>Price: {{ formatMoney(product.price) }}</span>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import { onMounted, reactive, ref } from "vue";
-import { getProducts } from "../../apis/product";
+import { computed, onMounted } from "vue";
+import { useStore } from "vuex";
+import { formatMoney } from "../../utils/helper";
 
-const listProduct = ref([]);
-const params = reactive({
-    page: 1,
-    limit: 8,
-});
+const store = useStore();
 
-onMounted(async () => {
-    try {
-        listProduct.value = await getProducts(params);
-        console.log("🚀 ~ onMounted ~ listProduct.value :", listProduct.value);
-    } catch (error) {
-        console.error("Failed to fetch products:", error);
-    }
+const product = computed(() => store.getters["product/listProducts"]);
+console.log("🚀 ~ product:", product)
+
+onMounted(() => {
+    store.dispatch("product/fetchProductList", {
+        page: 1,
+        limit: 8,
+    });
 });
 </script>
 
