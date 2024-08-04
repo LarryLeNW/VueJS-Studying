@@ -56,7 +56,7 @@ const handleLogoutDemo = () => {
 </script>
 
 <template>
-    <div class="flex py-4 px-8 h-15 border-b items-center justify-between">
+    <div class="flex py-4 px-8 h-15 border-b items-center justify-between mb-2">
         <div>
             <img src="../../assets/logo.png" alt="" class="h-10 object-cover" />
         </div>

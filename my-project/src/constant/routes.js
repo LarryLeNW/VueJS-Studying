@@ -1,8 +1,8 @@
 const routes = {
     USER: {
-        LOGIN: "/",
-        HOME: "/home",
-        PRODUCT: "/design",
+        LOGIN: "/login",
+        HOME: "/",
+        PRODUCT: "/product",
         DESIGN: "/web-design",
         ADVERTISES: "/advertises",
         SERVICES: "/services",

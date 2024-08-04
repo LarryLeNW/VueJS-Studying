@@ -1,10 +1,8 @@
-let url = "https://dash.burgerprints.com/pspfulfill/api/v1/dropship-api";
-const tokenUser = "1f41f5a1-6620-4164-83cd-47603c862b05";
-const urlProxy = "https://cors-anywhere.herokuapp.com/";
+import ENV_DEV from "../constant/env";
 
 export const getUserOrders = async () => {
     const result = await fetch(
-        `${urlProxy}${url}/orders/v1?sandbox=true&api_key=${tokenUser}`,
+        `${ENV_DEV.TEST.PROXY_URI}${ENV_DEV.TEST.DROP_SHIP_API}/orders/v1?sandbox=true&api_key=${ENV_DEV.TEST.DROP_SHIP_TOKEN_USER}`,
         {
             headers: {
                 "Content-Type": "application/json",
@@ -15,6 +13,5 @@ export const getUserOrders = async () => {
     )
         .then((response) => response.json())
         .catch((err) => console.error(err));
-    console.log("🚀 ~ getUserOrders ~ result:", result);
     return result;
 };
