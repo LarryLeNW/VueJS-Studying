@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@kyvg/vue3-notification": "^3.2.1",
     "axios": "^1.7.3",
     "dotenv-webpack": "^8.1.0",
     "my-project": "file:",
